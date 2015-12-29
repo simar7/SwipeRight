@@ -1,12 +1,20 @@
 package com.ekc.tinderlike.dagger.module;
 
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
+import android.content.res.Resources;
+import com.ekc.tinderlike.R;
 import com.ekc.tinderlike.dagger.qualifier.PerApp;
+import com.ekc.tinderlike.dagger.qualifier.Qualifiers;
+import com.ekc.tinderlike.dagger.qualifier.Qualifiers.FbId;
+import com.ekc.tinderlike.dagger.qualifier.Qualifiers.FbToken;
+import com.ekc.tinderlike.dagger.qualifier.Qualifiers.Mock;
 import com.ekc.tinderlike.dagger.qualifier.Qualifiers.Token;
 import com.ekc.tinderlike.data.StringPreference;
 import com.ekc.tinderlike.data.TinderApi;
 import com.ekc.tinderlike.data.converter.LocalDateConverter;
 import com.ekc.tinderlike.data.converter.MatchAdapterFactory;
+import com.ekc.tinderlike.data.mock.MockTinderApi;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -21,8 +29,13 @@ import retrofit.RxJavaCallAdapterFactory;
 
 @Module
 public class DataModule {
-  private static final String DEFAULT_TOKEN = "c1099c81-300c-4d79-aa8a-e7d80dc0e09f";
-  public static final String PREF_TOKEN = "api_key";
+  public static final int PREF_TOKEN = R.string.key_tinder_api;
+  public static final int PREF_FB_TOKEN = R.string.key_fb_token;
+  public static final int PREF_FB_ID = R.string.key_fb_id;
+
+  public static final int DEFAULT_TOKEN = R.string.default_tinder_token;
+  public static final int DEFAULT_FB_TOKEN = R.string.default_fb_token;
+  public static final int DEFAULT_FB_ID = R.string.default_fb_id;
 
   @Provides
   @PerApp OkHttpClient provideOkHttpClient() {
@@ -44,6 +57,10 @@ public class DataModule {
     return retrofit.create(TinderApi.class);
   }
 
+  @Provides @PerApp @Mock TinderApi provideMockTinderApi(Gson gson, AssetManager assetManager) {
+    return new MockTinderApi(gson, assetManager);
+  }
+
   @Provides
   @PerApp Gson provideGson() {
     return new GsonBuilder()
@@ -54,7 +71,17 @@ public class DataModule {
   }
 
   @Provides
-  @PerApp @Token StringPreference provideToken(SharedPreferences prefs) {
-    return new StringPreference(prefs, PREF_TOKEN, DEFAULT_TOKEN);
+  @PerApp @Token StringPreference provideToken(SharedPreferences prefs, Resources res) {
+    return new StringPreference(prefs, res, PREF_TOKEN, DEFAULT_TOKEN);
+  }
+
+  @Provides
+  @PerApp @FbToken StringPreference provideFbToken(SharedPreferences prefs, Resources res) {
+    return new StringPreference(prefs, res, PREF_FB_TOKEN, DEFAULT_FB_TOKEN);
+  }
+
+  @Provides
+  @PerApp @FbId StringPreference provideFbId(SharedPreferences prefs, Resources res) {
+    return new StringPreference(prefs, res, PREF_FB_ID, DEFAULT_FB_ID);
   }
 }

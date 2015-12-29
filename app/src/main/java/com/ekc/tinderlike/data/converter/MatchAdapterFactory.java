@@ -38,7 +38,7 @@ public class MatchAdapterFactory implements TypeAdapterFactory {
         }
 
         JsonElement tree = elementAdapter.read(in);
-        tree.getAsJsonObject().add("isMatch", new JsonPrimitive(true));
+        tree.getAsJsonObject().add("is_match", new JsonPrimitive(true));
         return delegate.fromJsonTree(tree);
       }
     };

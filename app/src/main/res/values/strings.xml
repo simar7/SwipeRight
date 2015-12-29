@@ -2,7 +2,24 @@
   <string name="app_name">TinderLike</string>
   <string name="action_settings">Settings</string>
   <string name="title_api_token">User API Token</string>
-  <string name="summary_api_token">Sample text summary</string>
   <string name="category_api_token">Tinder Settings</string>
+  <string name="get_token">Seed API Token</string>
   <string name="reset">Reset</string>
+  <string name="title_fb_token">Facebook API Token</string>
+  <string name="title_fb_id">Facebook ID</string>
+
+  <!--Specify your own fb token here-->
+  <string name="default_fb_token"/>
+  <!--Specify your own fb id token here-->
+  <string name="default_fb_id"/>
+  <!--No need to specify a default tinder token, use Seed Api Token button to retrieve-->
+  <string name="default_tinder_token"/>
+
+  <string name="summary_token_not_found">Please seed API Token</string>
+  <string name="summary_fb_token_not_found">Missing Facebook API Token</string>
+  <string name="summary_id_not_found">No ID set</string>
+  <string name="summary_pref_not_found">Preference not found</string>
+  <string name="key_tinder_api">api_key</string>
+  <string name="key_fb_token">fb_token</string>
+  <string name="key_fb_id">fb_id</string>
 </resources>

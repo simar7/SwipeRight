@@ -1,7 +1,6 @@
 package com.ekc.tinderlike.ui.main;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.ekc.tinderlike.R;
@@ -26,13 +25,11 @@ public class RecommendationAdapter extends SupportAnnotatedAdapter
   ) public final int row = 0;
 
   private final List<Recommendation> items = new ArrayList<>();
-  private final Resources res;
   private final BehaviorSubject<Recommendation> recommendationSubject;
 
-  public RecommendationAdapter(Context context, Resources res,
+  public RecommendationAdapter(Context context,
       BehaviorSubject<Recommendation> recommendationSubject) {
     super(context);
-    this.res = res;
     this.recommendationSubject = recommendationSubject;
   }
 
