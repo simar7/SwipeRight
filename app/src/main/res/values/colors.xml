@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="colorPrimary">@color/tinderX</color>
+  <color name="colorPrimaryDark">#E77856</color>
+  <color name="colorAccent">@color/tinderPink</color>
+
+  <color name="tinderYellow">#FFD57E</color>
+  <color name="tinderLogo">#ED7875</color>
+  <color name="tinderPink">#FF8380</color>
+  <color name="tinderTitle">#F47C79</color>
+  <color name="tinderX">#F18260</color>
+  <color name="tinderLike">#76E0AC</color>
+
+  <color name="tinderBlue">#3CBFD2</color>
+  <color name="tinderGreen">#5ED2A4</color>
+
+  <color name="green_a400">#00E676</color>
+  <color name="grey_400">#BDBDBD</color>
+
+  <color name="done">@color/tinderLike</color>
+  <color name="pending">@color/grey_400</color>
+  <color name="match">@color/tinderPink</color>
+</resources>

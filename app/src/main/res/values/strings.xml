@@ -1,0 +1,8 @@
+<resources>
+  <string name="app_name">TinderLike</string>
+  <string name="action_settings">Settings</string>
+  <string name="title_api_token">User API Token</string>
+  <string name="summary_api_token">Sample text summary</string>
+  <string name="category_api_token">Tinder Settings</string>
+  <string name="reset">Reset</string>
+</resources>
