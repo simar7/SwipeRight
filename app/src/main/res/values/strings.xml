@@ -7,14 +7,6 @@
   <string name="reset">Reset</string>
   <string name="title_fb_token">Facebook API Token</string>
   <string name="title_fb_id">Facebook ID</string>
-
-  <!--Specify your own fb token here-->
-  <string name="default_fb_token"/>
-  <!--Specify your own fb id token here-->
-  <string name="default_fb_id"/>
-  <!--No need to specify a default tinder token, use Seed Api Token button to retrieve-->
-  <string name="default_tinder_token"/>
-
   <string name="summary_token_not_found">Please seed API Token</string>
   <string name="summary_fb_token_not_found">Missing Facebook API Token</string>
   <string name="summary_id_not_found">No ID set</string>
