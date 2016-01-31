@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.ContentLoadingProgressBar;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
@@ -13,8 +14,6 @@ import butterknife.Bind;
 import butterknife.OnClick;
 import com.ekc.tinderlike.R;
 import com.ekc.tinderlike.dagger.component.ActivityComponent;
-import com.ekc.tinderlike.dagger.qualifier.Qualifiers;
-import com.ekc.tinderlike.dagger.qualifier.Qualifiers.Mock;
 import com.ekc.tinderlike.model.Match;
 import com.ekc.tinderlike.model.Recommendation;
 import com.ekc.tinderlike.ui.base.BaseActivity;
@@ -42,17 +41,18 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     layoutId = R.layout.activity_main;
   }
 
+  @Override protected void setupInjector() {
+    component = ActivityComponent.Initializer.init(this);
+    component.inject(this);
+  }
+
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     list.setLayoutManager(new LinearLayoutManager(this));
+    list.setItemAnimator(new DefaultItemAnimator());
     list.setAdapter(adapter);
     presenter.getRecommendations();
-  }
-
-  @Override protected void setupInjector() {
-    component = ActivityComponent.Initializer.init(this);
-    component.inject(this);
   }
 
   @Override public boolean onOptionsItemSelected(MenuItem item) {
@@ -80,6 +80,20 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     }
   }
 
+  @Override public void likeResponse(Recommendation recommendation, Match match) {
+    Timber.d("Liked %s, user Id %s, match? %s", recommendation.name(), recommendation.id(),
+        match.isMatch());
+    adapter.likeResponse(recommendation, match, this);
+    if (match.isMatch()) {
+      Toast.makeText(this, String.format("Matched with %s!", recommendation.name()),
+          Toast.LENGTH_SHORT).show();
+    }
+  }
+
+  @Override public void failure(String errorMessage) {
+    Toast.makeText(this, String.format("Error: %s", errorMessage), Toast.LENGTH_SHORT).show();
+  }
+
   @Override public void loadResults(List<Recommendation> results) {
     showList();
     adapter.updateList(results);
@@ -93,27 +107,12 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     progressBar.hide();
   }
 
-  @Override public void likeResponse(Recommendation recommendation, Match match) {
-    Timber.d("Liked %s, user Id %s, match? %s", recommendation.name(), recommendation.id(),
-        match.isMatch());
-    adapter.likeResponse(recommendation, match, this);
-    if (match.isMatch()) {
-      Toast.makeText(this, String.format("Matched with %s!", recommendation.name()),
-          Toast.LENGTH_SHORT).show();
-    }
-  }
-
   @Override public void showAuthError() {
     authErrorView.setVisibility(VISIBLE);
   }
 
   @Override public void hideAuthError() {
     authErrorView.setVisibility(INVISIBLE);
-  }
-
-  @Override public void hideErrorViews() {
-    hideAuthError();
-    hideLimitReached();
   }
 
   @Override public void showLimitReached() {
@@ -133,8 +132,9 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     list.setVisibility(INVISIBLE);
   }
 
-  @Override public void failure(String errorMessage) {
-    Toast.makeText(this, String.format("Error: %s", errorMessage), Toast.LENGTH_SHORT).show();
+  @Override public void hideErrorViews() {
+    hideAuthError();
+    hideLimitReached();
   }
 
   public void refresh() {
