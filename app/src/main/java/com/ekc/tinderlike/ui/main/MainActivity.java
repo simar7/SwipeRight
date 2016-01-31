@@ -30,6 +30,7 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     implements MainView {
   private static final int REQUEST_NEW_API_TOKEN = 1000;
   @Bind(R.id.auth_error) View authErrorView;
+  @Bind(R.id.limit_reached) View limitReachedView;
   @Bind(android.R.id.list) RecyclerView list;
   @Bind(R.id.fab) FloatingActionButton fab;
   @Bind(R.id.progress_bar) ContentLoadingProgressBar progressBar;
@@ -80,6 +81,7 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
   }
 
   @Override public void loadResults(List<Recommendation> results) {
+    showList();
     adapter.updateList(results);
   }
 
@@ -107,6 +109,28 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
 
   @Override public void hideAuthError() {
     authErrorView.setVisibility(INVISIBLE);
+  }
+
+  @Override public void hideErrorViews() {
+    hideAuthError();
+    hideLimitReached();
+  }
+
+  @Override public void showLimitReached() {
+    limitReachedView.setVisibility(VISIBLE);
+    hideList();
+  }
+
+  @Override public void hideLimitReached() {
+    limitReachedView.setVisibility(INVISIBLE);
+  }
+
+  private void showList() {
+    list.setVisibility(VISIBLE);
+  }
+
+  private void hideList() {
+    list.setVisibility(INVISIBLE);
   }
 
   @Override public void failure(String errorMessage) {

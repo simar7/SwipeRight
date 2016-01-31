@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     >
   <TextView
+      android:id="@+id/auth_error"
       android:layout_width="200dp"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
@@ -11,6 +12,18 @@
       android:drawableTop="@drawable/ic_error"
       android:drawableTint="@color/tinderPink"
       android:text="@string/auth_error"
+      android:textSize="16sp"
+      />
+
+  <TextView
+      android:id="@+id/limit_reached"
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:drawableTop="@drawable/ic_limit_reached"
+      android:drawableTint="@color/tinderPink"
+      android:text="You've reached your like limit!"
       android:textSize="16sp"
       />
 </FrameLayout>

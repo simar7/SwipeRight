@@ -19,4 +19,10 @@ public interface MainView extends BaseView {
   void showAuthError();
 
   void hideAuthError();
+
+  void hideErrorViews();
+
+  void showLimitReached();
+
+  void hideLimitReached();
 }

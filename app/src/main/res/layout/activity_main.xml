@@ -26,7 +26,7 @@
   </android.support.design.widget.AppBarLayout>
 
   <include layout="@layout/content_main"/>
-  <include android:id="@+id/auth_error" layout="@layout/auth_error"/>
+  <include layout="@layout/error_states"/>
 
   <android.support.design.widget.FloatingActionButton
       android:id="@+id/fab"
