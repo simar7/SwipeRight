@@ -30,6 +30,10 @@ public class Recommendation {
     return _id;
   }
 
+  public String bio() {
+    return bio;
+  }
+
   public boolean liked() {
     return liked;
   }
