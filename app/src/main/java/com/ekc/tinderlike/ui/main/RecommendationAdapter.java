@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.ekc.tinderlike.R;
 import com.ekc.tinderlike.model.Match;
 import com.ekc.tinderlike.model.Recommendation;
+import com.ekc.tinderlike.ui.main.RecommendationAdapterHolders.RowViewHolder;
 import com.hannesdorfmann.annotatedadapter.annotation.ViewField;
 import com.hannesdorfmann.annotatedadapter.annotation.ViewType;
 import com.hannesdorfmann.annotatedadapter.support.recyclerview.SupportAnnotatedAdapter;
@@ -37,13 +38,12 @@ public class RecommendationAdapter extends SupportAnnotatedAdapter
     return items.size();
   }
 
-  @Override public void bindViewHolder(RecommendationAdapterHolders.RowViewHolder vh,
-      int position) {
-    Recommendation recommendation = items.get(position);
+  @Override public void bindViewHolder(RowViewHolder vh, int position) {
+    Recommendation rec = items.get(position);
 
-    vh.status.setEnabled(recommendation.liked());
-    vh.name.setText(String.format("%s (id: %s)", recommendation.name(), recommendation.id()));
-    vh.match.setEnabled(recommendation.matched());
+    vh.status.setEnabled(rec.liked());
+    vh.name.setText(String.format("%s (%s)", rec.name(), rec.bio()));
+    vh.match.setEnabled(rec.matched());
   }
 
   public void updateList(final List<Recommendation> list) {

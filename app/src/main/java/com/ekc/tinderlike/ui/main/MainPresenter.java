@@ -38,7 +38,7 @@ public class MainPresenter extends BasePresenter<MainView> {
 
   private void like(Recommendation recommendation) {
     view.showLoading();
-    view.hideAuthError();
+    view.hideErrorViews();
     likeSubscription = api.like(token.get(), recommendation.id())
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
@@ -48,8 +48,13 @@ public class MainPresenter extends BasePresenter<MainView> {
           view.likeResponse(recommendation, match);
         }, error -> {
           view.hideLoading();
-          view.failure(error.getMessage());
           Timber.e(error, error.getMessage());
+          if (error instanceof NullPointerException) {
+            view.showLimitReached();
+            view.failure("You've hit your like limit! Either sign up for Tinder Plus or wait 12 hours.");
+          } else {
+            view.failure(error.getMessage());
+          }
         });
   }
 
@@ -72,7 +77,7 @@ public class MainPresenter extends BasePresenter<MainView> {
 
   public void getRecommendations() {
     view.showLoading();
-    view.hideAuthError();
+    view.hideErrorViews();
     subscription =
         api.recs(token.get()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .map(RecommendationResponse::getResults)

@@ -17,12 +17,6 @@ public class SettingsActivity extends BaseActivity<SettingsPresenter, ActivityCo
   @Bind(R.id.reset) Button reset;
   @Bind(R.id.progress_bar) ContentLoadingProgressBar progressBar;
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-    hideLoading();
-    PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
-  }
-
   @Override protected void setLayoutId() {
     layoutId = R.layout.activity_settings;
   }
@@ -30,6 +24,12 @@ public class SettingsActivity extends BaseActivity<SettingsPresenter, ActivityCo
   @Override protected void setupInjector() {
     component = ActivityComponent.Initializer.init(this);
     component.inject(this);
+  }
+
+  @Override protected void onCreate(Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    hideLoading();
+    PreferenceManager.setDefaultValues(this, R.xml.preferences, false);
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
@@ -56,17 +56,17 @@ public class SettingsActivity extends BaseActivity<SettingsPresenter, ActivityCo
     }
   }
 
-  @Override
-  public void showLoading() {
-    progressBar.show();
-  }
-
   @Override public void onAuthSuccess() {
 
   }
 
   @Override public void onAuthFailure() {
 
+  }
+
+  @Override
+  public void showLoading() {
+    progressBar.show();
   }
 
   @Override
