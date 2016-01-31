@@ -7,6 +7,7 @@ import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -22,9 +23,13 @@ import java.util.List;
 import javax.inject.Inject;
 import timber.log.Timber;
 
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
 public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     implements MainView {
   private static final int REQUEST_NEW_API_TOKEN = 1000;
+  @Bind(R.id.auth_error) View authErrorView;
   @Bind(android.R.id.list) RecyclerView list;
   @Bind(R.id.fab) FloatingActionButton fab;
   @Bind(R.id.progress_bar) ContentLoadingProgressBar progressBar;
@@ -94,6 +99,14 @@ public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
       Toast.makeText(this, String.format("Matched with %s!", recommendation.name()),
           Toast.LENGTH_SHORT).show();
     }
+  }
+
+  @Override public void showAuthError() {
+    authErrorView.setVisibility(VISIBLE);
+  }
+
+  @Override public void hideAuthError() {
+    authErrorView.setVisibility(INVISIBLE);
   }
 
   @Override public void failure(String errorMessage) {

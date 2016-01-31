@@ -15,4 +15,8 @@ public interface MainView extends BaseView {
   void hideLoading();
 
   void likeResponse(Recommendation recommendation, Match match);
+
+  void showAuthError();
+
+  void hideAuthError();
 }

@@ -9,6 +9,7 @@ import com.ekc.tinderlike.model.RecommendationResponse;
 import com.ekc.tinderlike.ui.base.BasePresenter;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import retrofit.HttpException;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -16,7 +17,6 @@ import rx.subjects.BehaviorSubject;
 import timber.log.Timber;
 
 public class MainPresenter extends BasePresenter<MainView> {
-  // TODO pull token from fb login
   public static final long BASE_DELAY = 500;
   public static final double VARIANCE = 0.2d;
 
@@ -38,6 +38,7 @@ public class MainPresenter extends BasePresenter<MainView> {
 
   private void like(Recommendation recommendation) {
     view.showLoading();
+    view.hideAuthError();
     likeSubscription = api.like(token.get(), recommendation.id())
         .subscribeOn(Schedulers.io())
         .observeOn(AndroidSchedulers.mainThread())
@@ -71,19 +72,24 @@ public class MainPresenter extends BasePresenter<MainView> {
 
   public void getRecommendations() {
     view.showLoading();
+    view.hideAuthError();
     subscription =
         api.recs(token.get()).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
             .map(RecommendationResponse::getResults)
             .subscribe(results -> {
                   view.hideLoading();
+                  view.hideAuthError();
                   view.loadResults(results);
                 },
                 error -> {
                   view.hideLoading();
                   view.failure(error.getMessage());
                   Timber.e(error, error.getMessage());
+                  if (error instanceof HttpException) {
+                    if (((HttpException) error).code() == 401) {
+                      view.showAuthError();
+                    }
+                  }
                 });
   }
-
-
 }

@@ -14,4 +14,5 @@
   <string name="key_tinder_api">api_key</string>
   <string name="key_fb_token">fb_token</string>
   <string name="key_fb_id">fb_id</string>
+  <string name="auth_error">This is a Tindergency!\nCheck your Settings and try reseeding the API Token and make sure your Facebook token/IDs are correct</string>
 </resources>
