@@ -1,8 +1,8 @@
 <resources>
   <!--Specify your own fb token here-->
-  <string name="default_fb_token"/>
+  <string name="default_fb_token">CAAGm0PX4ZCpsBAFqZA5dIbas4pKnGsOAADYGLfGbUCvr9C4jpUMVwRRnxYxXPfz5BbVH8XrvmhlH8GGxYagr2UQm5TRP54K3ZBXfV9MPwCvdSHLlPMJSEVee6VuhaLOH7xRW6LQPwtQt0ID6zFyeBVNH7v3Ac4QXgyg9Wh1OZA8WI8XxmMWb2puii9nV1ORIZCWtWoE5CwGAIG3CP7nLwo4kOink1hw8gMqoMa9x49gZDZD</string>
   <!--Specify your own fb id token here-->
-  <string name="default_fb_id"/>
+  <string name="default_fb_id">591307754</string>
   <!--No need to specify a default tinder token, use Seed Api Token button to retrieve-->
   <string name="default_tinder_token"/>
 </resources>
