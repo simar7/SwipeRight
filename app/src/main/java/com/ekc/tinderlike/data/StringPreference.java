@@ -1,6 +1,8 @@
 package com.ekc.tinderlike.data;
 
 import android.content.SharedPreferences;
+import android.content.res.Resources;
+import android.support.annotation.StringRes;
 
 public class StringPreference {
   private final SharedPreferences preferences;
@@ -15,6 +17,13 @@ public class StringPreference {
     this.preferences = preferences;
     this.key = key;
     this.defaultValue = defaultValue;
+  }
+
+  public StringPreference(SharedPreferences preferences, Resources res, @StringRes int key,
+      @StringRes int defaultValue) {
+    this.preferences = preferences;
+    this.key = res.getString(key);
+    this.defaultValue = res.getString(defaultValue);
   }
 
   public String get() { return preferences.getString(key, defaultValue); }

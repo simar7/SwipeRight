@@ -2,10 +2,21 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
   <PreferenceCategory android:title="@string/category_api_token">
     <EditTextPreference
-        android:key="api_key"
+        android:key="@string/key_tinder_api"
         android:title="@string/title_api_token"
-        android:summary="@string/summary_api_token"
-        android:defaultValue="c1099c81-300c-4d79-aa8a-e7d80dc0e09f"
+        android:summary="@string/summary_token_not_found"
+        />
+    <EditTextPreference
+        android:key="@string/key_fb_token"
+        android:title="@string/title_fb_token"
+        android:defaultValue="@string/default_fb_token"
+        android:summary="@string/summary_fb_token_not_found"
+        />
+    <EditTextPreference
+        android:key="@string/key_fb_id"
+        android:title="@string/title_fb_id"
+        android:defaultValue="@string/default_fb_id"
+        android:summary="@string/summary_id_not_found"
         />
       </PreferenceCategory>
 </PreferenceScreen>

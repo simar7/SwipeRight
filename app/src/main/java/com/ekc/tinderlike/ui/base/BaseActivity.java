@@ -11,7 +11,8 @@ import com.ekc.tinderlike.R;
 import com.ekc.tinderlike.dagger.component.BaseComponent;
 import javax.inject.Inject;
 
-public abstract class BaseActivity<T extends BasePresenter, C extends BaseComponent> extends AppCompatActivity
+public abstract class BaseActivity<T extends BasePresenter, C extends BaseComponent>
+    extends AppCompatActivity
     implements BaseView {
 
   @Inject protected T presenter;

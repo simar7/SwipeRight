@@ -10,4 +10,19 @@ public class Qualifiers {
   @Retention(RUNTIME)
   public @interface Token {
   }
+
+  @Qualifier
+  @Retention(RUNTIME)
+  public @interface FbToken {
+  }
+
+  @Qualifier
+  @Retention(RUNTIME)
+  public @interface FbId {
+  }
+
+  @Qualifier
+  @Retention(RUNTIME)
+  public @interface Mock {
+  }
 }

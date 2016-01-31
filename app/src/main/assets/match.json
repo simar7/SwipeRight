@@ -1,0 +1,19 @@
+{
+	"match": {
+		"_id": "525c3647c15828ee1f0002b25621353df7dccc7c1d2d9ca8",
+		"closed": false,
+		"common_friend_count": 0,
+		"common_like_count": 0,
+		"created_date": "2015-12-28T15:12:54.866Z",
+		"dead": false,
+		"last_activity_date": "2015-12-28T15:12:54.866Z",
+		"message_count": 0,
+		"messages": [],
+		"participants": ["525c3647c15828ee1f0002b2", "5621353df7dccc7c1d2d9ca8"],
+		"pending": false,
+		"is_super_like": false,
+		"following": true,
+		"following_moments": true
+	},
+	"likes_remaining": 100
+}

@@ -7,11 +7,14 @@ import android.support.v4.widget.ContentLoadingProgressBar;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.OnClick;
 import com.ekc.tinderlike.R;
-import com.ekc.tinderlike.dagger.component.MainActivityComponent;
+import com.ekc.tinderlike.dagger.component.ActivityComponent;
+import com.ekc.tinderlike.dagger.qualifier.Qualifiers;
+import com.ekc.tinderlike.dagger.qualifier.Qualifiers.Mock;
 import com.ekc.tinderlike.model.Match;
 import com.ekc.tinderlike.model.Recommendation;
 import com.ekc.tinderlike.ui.base.BaseActivity;
@@ -20,13 +23,19 @@ import java.util.List;
 import javax.inject.Inject;
 import timber.log.Timber;
 
-public class MainActivity extends BaseActivity<MainPresenter, MainActivityComponent>
+import static android.view.View.INVISIBLE;
+import static android.view.View.VISIBLE;
+
+public class MainActivity extends BaseActivity<MainPresenter, ActivityComponent>
     implements MainView {
+  private static final int REQUEST_NEW_API_TOKEN = 1000;
+  @Bind(R.id.auth_error) View authErrorView;
   @Bind(android.R.id.list) RecyclerView list;
   @Bind(R.id.fab) FloatingActionButton fab;
   @Bind(R.id.progress_bar) ContentLoadingProgressBar progressBar;
 
   @Inject RecommendationAdapter adapter;
+  private boolean likesAllInProgress;
 
   @Override protected void setLayoutId() {
     layoutId = R.layout.activity_main;
@@ -41,7 +50,7 @@ public class MainActivity extends BaseActivity<MainPresenter, MainActivityCompon
   }
 
   @Override protected void setupInjector() {
-    component = MainActivityComponent.Initializer.init(this);
+    component = ActivityComponent.Initializer.init(this);
     component.inject(this);
   }
 
@@ -49,14 +58,25 @@ public class MainActivity extends BaseActivity<MainPresenter, MainActivityCompon
     final int id = item.getItemId();
 
     if (id == R.id.action_settings) {
-      startActivity(new Intent(this, SettingsActivity.class));
+      startActivityForResult(new Intent(this, SettingsActivity.class), REQUEST_NEW_API_TOKEN);
       return true;
     }
     return super.onOptionsItemSelected(item);
   }
 
+  @Override protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    if (requestCode == REQUEST_NEW_API_TOKEN) {
+      if (resultCode == RESULT_OK) {
+        refresh();
+      }
+    }
+  }
+
   @OnClick(R.id.fab) void onFabClick() {
-    adapter.likeAll();
+    if (!likesAllInProgress) {
+      likesAllInProgress = true;
+      adapter.likeAll();
+    }
   }
 
   @Override public void loadResults(List<Recommendation> results) {
@@ -81,11 +101,20 @@ public class MainActivity extends BaseActivity<MainPresenter, MainActivityCompon
     }
   }
 
+  @Override public void showAuthError() {
+    authErrorView.setVisibility(VISIBLE);
+  }
+
+  @Override public void hideAuthError() {
+    authErrorView.setVisibility(INVISIBLE);
+  }
+
   @Override public void failure(String errorMessage) {
     Toast.makeText(this, String.format("Error: %s", errorMessage), Toast.LENGTH_SHORT).show();
   }
 
   public void refresh() {
+    likesAllInProgress = false;
     adapter.clear();
     presenter.getRecommendations();
   }
