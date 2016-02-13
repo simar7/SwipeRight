@@ -17,6 +17,13 @@ git clone https://github.com/ekchang/SwipeRight.git
 
 
 
+Use
+--------
+
+Login with Facebook (using the account you've connected with Tinder), then press the floating action button to start a like chain for everyone in the list. There is a 500 ms (+/- 20%) delay between calls.
+
+
+
 Dependencies
 --------
 
