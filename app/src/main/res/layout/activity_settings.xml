@@ -25,19 +25,24 @@
 
   <fragment
       android:id="@+id/settings_fragment"
-      android:name="com.ekc.tinderlike.ui.pref.SettingsFragment"
+      android:name="com.ekc.swiperight.ui.pref.SettingsFragment"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
       app:layout_behavior="@string/appbar_scrolling_view_behavior"
+      tools:layout="@android:layout/preference_category"
       />
 
   <LinearLayout
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:orientation="horizontal"
+      android:orientation="vertical"
       android:layout_gravity="bottom"
       android:layout_marginBottom="@dimen/spacing_16dp"
       >
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_login"
+        style="@style/FacebookButton"
+        />
     <Button
         android:id="@+id/get_token"
         android:layout_width="wrap_content"
@@ -46,20 +51,13 @@
         android:text="@string/get_token"
         android:textColor="@android:color/white"
         />
-    <Button
-        android:id="@+id/reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/reset"
-        android:textColor="@android:color/white"
-        />
   </LinearLayout>
   <android.support.v4.widget.ContentLoadingProgressBar
       android:id="@+id/progress_bar"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
+      android:visibility="gone"
       style="@style/Widget.AppCompat.ProgressBar"
       />
 </android.support.design.widget.CoordinatorLayout>

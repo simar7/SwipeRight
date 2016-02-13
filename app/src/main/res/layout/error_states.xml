@@ -2,18 +2,31 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/activity_main"
     >
-  <TextView
+  <LinearLayout
       android:id="@+id/auth_error"
-      android:layout_width="200dp"
+      android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:gravity="center"
-      android:drawableTop="@drawable/ic_error"
-      android:drawableTint="@color/tinderPink"
-      android:text="@string/auth_error"
-      android:textSize="16sp"
-      />
+      android:orientation="vertical"
+      android:visibility="gone"
+      tools:visibility="visible"
+      >
+    <TextView
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:drawableTop="@drawable/ic_error"
+        android:text="@string/auth_error"
+        android:textSize="16sp"
+        />
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/fb_login"
+        style="@style/FacebookButton"
+        />
+  </LinearLayout>
 
   <TextView
       android:id="@+id/limit_reached"
@@ -22,8 +35,20 @@
       android:layout_gravity="center"
       android:gravity="center"
       android:drawableTop="@drawable/ic_limit_reached"
-      android:drawableTint="@color/tinderPink"
-      android:text="You've reached your like limit!"
+      android:text="@string/like_limit"
       android:textSize="16sp"
+      android:visibility="gone"
+      />
+
+  <TextView
+      android:id="@+id/connection_error"
+      android:layout_width="200dp"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center"
+      android:gravity="center"
+      android:drawableTop="@drawable/ic_error"
+      android:text="@string/connection_error"
+      android:textSize="16sp"
+      android:visibility="invisible"
       />
 </FrameLayout>
