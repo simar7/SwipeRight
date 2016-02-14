@@ -67,5 +67,675 @@
 			"type": "school"
 		},
 		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 2",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 3",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 4",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 5",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 6",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 7",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 8",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 9",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
+	}, {
+		"distance_mi": 5,
+		"common_connections": [],
+		"connection_count": 0,
+		"common_likes": [],
+		"common_interests": [{
+			"id": "",
+			"name": ""
+		}],
+		"common_friends": [],
+		"_id": "",
+		"bio": "Mock Bio",
+		"birth_date": "1980-05-05T00:00:00.000Z",
+		"gender": 1,
+		"name": "Mock Name 10",
+		"ping_time": "2015-10-30T05:55:55.222Z",
+		"photos": [{
+			"id": "123456ab-a12b-1234-1234-12345a123456",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"height": 640,
+				"url": ".jpg"
+			}, {
+				"width": 320,
+				"height": 320,
+				"url": ".jpg"
+			}, {
+				"width": 172,
+				"height": 172,
+				"url": ".jpg"
+			}, {
+				"width": 84,
+				"height": 84,
+				"url": ".jpg"
+			}]
+		}, {
+			"id": "",
+			"url": ".jpg",
+			"processedFiles": [{
+				"width": 640,
+				"url": ".jpg",
+				"height": 640
+			}, {
+				"width": 320,
+				"url": ".jpg",
+				"height": 320
+			}, {
+				"width": 172,
+				"url": ".jpg",
+				"height": 172
+			}, {
+				"width": 84,
+				"url": ".jpg",
+				"height": 84
+			}]
+		}],
+		"jobs": [],
+		"schools": [{
+			"name": "School Name",
+			"id": ""
+		}],
+		"teaser": {
+			"string": "School Name",
+			"type": "school"
+		},
+		"birth_date_info": "fuzzy birthdate active, not displaying real birth_date"
 	}]
 }
