@@ -74,7 +74,13 @@ public class MainActivity extends BaseActivity implements MainView {
     list.setItemAnimator(null);
     fbLoginButton.registerCallback(callbackManager, presenter);
     fbLoginButton.setLoginBehavior(LoginBehavior.WEB_ONLY);
-    presenter.auth();
+
+    if (savedInstanceState == null) {
+      // Only do a full auth cycle if not loading from savedInstanceState
+      presenter.auth();
+    } else {
+      presenter.getRecommendations();
+    }
   }
 
   @Override public boolean onOptionsItemSelected(MenuItem item) {
