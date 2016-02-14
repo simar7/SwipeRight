@@ -9,7 +9,6 @@
       android:layout_gravity="center"
       android:gravity="center"
       android:drawableTop="@drawable/ic_error"
-      android:drawableTint="@color/tinderPink"
       android:text="@string/auth_error"
       android:textSize="16sp"
       />

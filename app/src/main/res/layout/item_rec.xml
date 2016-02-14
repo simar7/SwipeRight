@@ -12,8 +12,6 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center_vertical"
       android:src="@drawable/ic_check_circle"
-      android:tint="@drawable/status_tint"
-      tools:tint="@color/done"
       />
   <TextView
       android:id="@+id/name"
@@ -33,7 +31,5 @@
       android:layout_height="wrap_content"
       android:layout_gravity="center_vertical"
       android:src="@drawable/ic_heart"
-      android:tint="@drawable/match_tint"
-      tools:tint="@color/match"
       />
 </LinearLayout>
