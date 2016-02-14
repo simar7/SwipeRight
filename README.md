@@ -9,8 +9,9 @@ This has been an exercise in reverse engineering and software architecture explo
 
 Download
 --------
- 
-Download through [the Google Play Store][1] or grab via GitHub:
+<a href="https://play.google.com/store/apps/details?id=com.ekc.swiperight&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"><img alt="Get it on Google Play" src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge-border.png" height="60" width="185"/></a> 
+
+SwipeRight is available [on Google Play][1] or clone the repo:
 ```
 git clone https://github.com/ekchang/SwipeRight.git
 ```
@@ -184,5 +185,8 @@ License
     See the License for the specific language governing permissions and
     limitations under the License.
 
+Legal
+---------
+Android, Google Play and the Google Play logo are trademarks of Google Inc.
 
  [1]: https://play.google.com/store/apps/details?id=com.ekc.swiperight
