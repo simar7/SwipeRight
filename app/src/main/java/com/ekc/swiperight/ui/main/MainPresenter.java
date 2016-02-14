@@ -27,8 +27,6 @@ public class MainPresenter extends BasePresenter<MainView> implements
   private final DataManager dataManager;
   private final Resources res;
 
-  private List<Recommendation> items;
-
   @Inject MainPresenter(DataManager dataManager, Resources res) {
     this.dataManager = dataManager;
     this.res = res;
@@ -57,6 +55,13 @@ public class MainPresenter extends BasePresenter<MainView> implements
     dataManager.recommendations();
   }
 
+  public void like(Recommendation recommendation) {
+    setEmptyViewIfNull();
+    view.showLoading();
+    view.hideErrorViews();
+    dataManager.like(recommendation);
+  }
+
   public void likeAll(Recommendation start) {
     setEmptyViewIfNull();
     view.showLoading();
@@ -83,7 +88,7 @@ public class MainPresenter extends BasePresenter<MainView> implements
       view.showLimitReached();
       view.failure(res.getString(R.string.like_limit));
     } else {
-      view.loadRecommendations(items = results);
+      view.loadRecommendations(results);
     }
   }
 
@@ -108,18 +113,7 @@ public class MainPresenter extends BasePresenter<MainView> implements
         match != Match.NO_MATCH);
 
     view.hideLoading();
-    view.likeResponse(match);
-
-    if (dataManager.isLikeAllInProgress()) {
-      // Continue the like chain
-      int index = items.indexOf(match.recommendation());
-      if (index >= 0 && index < items.size() - 1) {
-        dataManager.like(items.get(index + 1));
-      } else {
-        dataManager.setLikeAllInProgress(false);
-        refresh();
-      }
-    }
+    view.likeResponse(match, dataManager.isLikeAllInProgress());
   }
 
   @Override public void onLikeFailure(Throwable error) {
@@ -165,6 +159,7 @@ public class MainPresenter extends BasePresenter<MainView> implements
   }
 
   public void refresh() {
+    dataManager.setLikeAllInProgress(false);
     invalidateCache();
     getRecommendations();
   }

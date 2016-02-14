@@ -79,7 +79,7 @@ public class RecommendationAdapter extends SupportAnnotatedAdapter
     }
   }
 
-  public void likeResponse(Match match) {
+  public void likeResponse(Match match, boolean likeAllInProgress) {
     Recommendation recommendation = match.recommendation();
     if (recommendation == null) {
       return;
@@ -92,6 +92,15 @@ public class RecommendationAdapter extends SupportAnnotatedAdapter
     }
 
     notifyItemChanged(index, recommendation);
+
+    if (likeAllInProgress) {
+      // Continue the like chain
+      if (index >= 0 && index < items.size() - 1) {
+        presenter.like(items.get(index + 1));
+      } else {
+        presenter.refresh();
+      }
+    }
   }
 
   public void clear() {

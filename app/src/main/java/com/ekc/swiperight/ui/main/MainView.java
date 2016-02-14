@@ -23,7 +23,7 @@ public interface MainView extends BaseView {
 
     }
 
-    @Override public void likeResponse(Match match) {
+    @Override public void likeResponse(Match match, boolean likeAllInProgress) {
 
     }
 
@@ -64,7 +64,7 @@ public interface MainView extends BaseView {
 
   void hideLoading();
 
-  void likeResponse(Match match);
+  void likeResponse(Match match, boolean likeAllInProgress);
 
   void showAuthError();
 

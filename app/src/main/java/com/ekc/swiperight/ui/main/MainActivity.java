@@ -111,8 +111,8 @@ public class MainActivity extends BaseActivity implements MainView {
     adapter.likeAll();
   }
 
-  @Override public void likeResponse(Match match) {
-    adapter.likeResponse(match);
+  @Override public void likeResponse(Match match, boolean likeAllInProgress) {
+    adapter.likeResponse(match, likeAllInProgress);
     if (match != Match.NO_MATCH) {
       Toast.makeText(this,
           getString(R.string.match_success, match.recommendation().name()),
