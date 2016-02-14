@@ -66,9 +66,9 @@ The LikeProvider is the most straight forward data provider - you make one call,
 
 ```java
 public class LikeProvider extends DataProvider<LikeObserver> {
-@NonNull private LikeObserver observer = EMPTY_OBSERVER;
+  @NonNull private LikeObserver observer = EMPTY_OBSERVER;
 
-LikeProvider(TinderApiClient api, ...) {
+  LikeProvider(TinderApiClient api, ...) {
     this.api = api;
   }
 
@@ -96,7 +96,9 @@ There's the flexibility of abstracting away whether or not your DataProvider man
 
 ```java
 public class RecommendationProvider extends DataProvider<RecommendationObserver> {
-void recommendations() {
+  private final List<Recommendation> cache = new ArrayList<>();
+  
+  void recommendations() {
     if (!getRecommendationCache()) {
       api.recs(token.get())
         .subscribe(
@@ -109,15 +111,15 @@ void recommendations() {
         );
     }
   }
-
+  
   private boolean getRecommendationCache() {
     List<Recommendation> copy = new ArrayList<>();
-    if (!cache.isEmpty()) {
-      copy.addAll(cache);
-      observer.onGetRecommendationsSuccess(copy); // Push a copy of the cache to the observer
-      return true;
-    }
-    return false;
+      if (!cache.isEmpty()) {
+        copy.addAll(cache);
+        observer.onGetRecommendationsSuccess(copy); // Push a copy of the cache to the observer
+        return true;
+      }
+      return false;
   }
 }
 ```
@@ -127,8 +129,7 @@ When the presenter subscribes to the list of recommendations, the presenter does
 So if this boilerplate wrapper around your API client seems too bulky, perhaps the Presenter implementation will change your mind:
 
 ```java
-public class MainPresenter extends BasePresenter<MainView> implements
-    RecommendationObserver {
+public class MainPresenter extends BasePresenter<MainView> implements RecommendationObserver {
   public void initialize() {
     dataManager.subscribe(this);
   }
