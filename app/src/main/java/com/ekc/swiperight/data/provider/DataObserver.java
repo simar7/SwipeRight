@@ -5,6 +5,10 @@ import com.ekc.swiperight.model.Recommendation;
 import java.util.List;
 
 public interface DataObserver {
+  default boolean canObserve(DataProvider provider) {
+    return provider.observerType.isInstance(this);
+  }
+
   interface RecommendationObserver extends DataObserver {
     void onGetRecommendationsSuccess(List<Recommendation> results);
 

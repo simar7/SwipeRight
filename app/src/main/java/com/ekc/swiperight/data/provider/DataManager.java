@@ -26,12 +26,12 @@ public class DataManager {
   }
 
   public void subscribe(DataObserver observer) {
-    dataProviders.filter(provider -> provider.observerType.isInstance(observer))
+    dataProviders.filter(observer::canObserve)
         .subscribe(provider -> provider.subscribe(observer));
   }
 
   public void unsubscribe(DataObserver observer) {
-    dataProviders.filter(provider -> provider.observerType.isInstance(observer))
+    dataProviders.filter(observer::canObserve)
         .subscribe(provider -> provider.unsubscribe(observer));
   }
 
