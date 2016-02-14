@@ -15,6 +15,7 @@ Download through [the Google Play Store][1] or grab via GitHub:
 git clone https://github.com/ekchang/SwipeRight.git
 ```
 
+You will need Java JDK 8 installed and Gradle Plugin 1.5+, as I use retrolambda and vector drawables gratuitously.
 
 
 Use
@@ -33,6 +34,7 @@ Dependencies
 * Timber
 * Retrofit
 * RxJava
+* Retrolambda
 * LeakCanary
 * AnnotatedAdapter
 * Facebook SDK

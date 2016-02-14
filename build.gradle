@@ -16,9 +16,6 @@ buildscript {
     // ...except for this annotation processor needed for Dagger 2 etc
     classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
 
-    // Error Prone static analysis plugin
-//    classpath 'net.ltgt.gradle:gradle-errorprone-plugin:0.0.7.1'
-
     // Retrolambda
     classpath 'me.tatarka:gradle-retrolambda:3.2.4'
   }
