@@ -20,4 +20,5 @@
   <color name="done">@color/tinderLike</color>
   <color name="pending">@color/grey_400</color>
   <color name="match">@color/tinderPink</color>
+  <color name="background_material_dark">#303030</color>
 </resources>
