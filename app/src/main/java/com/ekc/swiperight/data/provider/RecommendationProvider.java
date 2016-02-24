@@ -43,10 +43,14 @@ public class RecommendationProvider extends DataProvider<RecommendationObserver>
       if (!RxUtil.inFlight(subscription)) {
         subscription = api.recs(token.get())
             .subscribe(
-                recs -> {
-                  cache.clear();
-                  cache.addAll(recs);
-                  observer.onGetRecommendationsSuccess(recs);
+                response -> {
+                  if (response.recsExhausted()) {
+                    observer.onGetRecommendationsFailure(new RecExhaustedException());
+                  } else {
+                    cache.clear();
+                    cache.addAll(response.getResults());
+                    observer.onGetRecommendationsSuccess(response.getResults());
+                  }
                 },
                 observer::onGetRecommendationsFailure
             );
@@ -75,6 +79,12 @@ public class RecommendationProvider extends DataProvider<RecommendationObserver>
 
     @Override public void onGetRecommendationsFailure(Throwable error) {
 
+    }
+  }
+
+  public static final class RecExhaustedException extends Exception {
+    @Override public String getMessage() {
+      return "There's no one new around you.";
     }
   }
 }
