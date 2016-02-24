@@ -14,4 +14,5 @@
   <string name="generic_error">Error: %s</string>
   <string name="match_success">Matched with %s!</string>
   <string name="facebook_app_id">464891386855067</string>
+  <string name="rec_exhausted_error">There\'s no one around you. Try increasing your match radius?</string>
 </resources>

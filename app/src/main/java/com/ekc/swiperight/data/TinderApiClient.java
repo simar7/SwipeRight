@@ -19,11 +19,10 @@ public class TinderApiClient {
     this.api = api;
   }
 
-  public Observable<List<Recommendation>> recs(String token) {
+  public Observable<RecommendationResponse> recs(String token) {
     return api.recs(token)
         .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .map(RecommendationResponse::getResults);
+        .observeOn(AndroidSchedulers.mainThread());
   }
 
   public Observable<Match> like(String token, String targetId) {

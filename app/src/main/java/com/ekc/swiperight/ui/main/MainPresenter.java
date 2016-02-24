@@ -7,6 +7,7 @@ import com.ekc.swiperight.data.provider.DataManager;
 import com.ekc.swiperight.data.provider.DataObserver.AuthObserver;
 import com.ekc.swiperight.data.provider.DataObserver.LikeObserver;
 import com.ekc.swiperight.data.provider.DataObserver.RecommendationObserver;
+import com.ekc.swiperight.data.provider.RecommendationProvider.RecExhaustedException;
 import com.ekc.swiperight.model.Match;
 import com.ekc.swiperight.model.Recommendation;
 import com.ekc.swiperight.ui.base.BasePresenter;
@@ -98,6 +99,9 @@ public class MainPresenter extends BasePresenter<MainView> implements
     view.failure(error.getMessage());
     if (error instanceof HttpException && ((HttpException) error).code() == 401) {
       view.showAuthError();
+    } else if (error instanceof RecExhaustedException) {
+      view.showRecExhausted();
+      view.failure(error.getMessage());
     } else {
       view.showConnectionError();
     }
@@ -121,6 +125,7 @@ public class MainPresenter extends BasePresenter<MainView> implements
     view.hideLoading();
     dataManager.setLikeAllInProgress(false);
     Timber.e(error, error.getMessage());
+
     if (error instanceof NullPointerException) {
       view.showLimitReached();
       view.failure(res.getString(R.string.like_limit));

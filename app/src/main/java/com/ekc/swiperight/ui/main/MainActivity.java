@@ -17,24 +17,29 @@ import com.ekc.swiperight.model.Match;
 import com.ekc.swiperight.model.Recommendation;
 import com.ekc.swiperight.ui.base.BaseActivity;
 import com.ekc.swiperight.ui.pref.SettingsActivity;
+import com.ekc.swiperight.ui.widget.MainFloatingActionButton;
 import com.facebook.CallbackManager;
 import com.facebook.login.LoginBehavior;
 import com.facebook.login.widget.LoginButton;
 import java.util.List;
 import javax.inject.Inject;
 
+import static android.view.View.GONE;
 import static android.view.View.INVISIBLE;
 import static android.view.View.VISIBLE;
 import static com.ekc.swiperight.ui.RequestCode.REQUEST_NEW_API_TOKEN;
 import static com.ekc.swiperight.ui.ResultCode.RESULT_REFRESH;
+import static com.ekc.swiperight.ui.widget.MainFloatingActionButton.State.LIKE;
 
 public class MainActivity extends BaseActivity implements MainView {
   @Bind(R.id.auth_error) View authErrorView;
   @Bind(R.id.limit_reached) View limitReachedView;
   @Bind(R.id.connection_error) View connectionErrorView;
+  @Bind(R.id.rec_exhausted_error) View recExhaustedErrorView;
   @Bind(android.R.id.list) RecyclerView list;
   @Bind(R.id.progress_bar) ContentLoadingProgressBar progressBar;
   @Bind(R.id.fb_login) LoginButton fbLoginButton;
+  @Bind(R.id.fab) MainFloatingActionButton fab;
 
   @Inject MainPresenter presenter;
   @Inject RecommendationAdapter adapter;
@@ -108,7 +113,11 @@ public class MainActivity extends BaseActivity implements MainView {
   }
 
   @OnClick(R.id.fab) void onFabClick() {
-    adapter.likeAll();
+    if (fab.getState() == LIKE) {
+      adapter.likeAll();
+    } else {
+      presenter.refresh();
+    }
   }
 
   @Override public void likeResponse(Match match, boolean likeAllInProgress) {
@@ -127,6 +136,7 @@ public class MainActivity extends BaseActivity implements MainView {
 
   @Override public void loadRecommendations(List<Recommendation> results) {
     showList();
+    fab.setLikeState();
     adapter.updateList(results);
   }
 
@@ -139,30 +149,47 @@ public class MainActivity extends BaseActivity implements MainView {
   }
 
   @Override public void showAuthError() {
+    adapter.updateList(null);
+    fab.setRefreshState();
     authErrorView.setVisibility(VISIBLE);
     hideList();
   }
 
   @Override public void hideAuthError() {
-    authErrorView.setVisibility(INVISIBLE);
+    authErrorView.setVisibility(GONE);
   }
 
   @Override public void showLimitReached() {
+    adapter.updateList(null);
+    fab.setRefreshState();
     limitReachedView.setVisibility(VISIBLE);
     hideList();
   }
 
   @Override public void hideLimitReached() {
-    limitReachedView.setVisibility(INVISIBLE);
+    limitReachedView.setVisibility(GONE);
   }
 
   @Override public void showConnectionError() {
+    adapter.updateList(null);
+    fab.setRefreshState();
     connectionErrorView.setVisibility(VISIBLE);
     hideList();
   }
 
   @Override public void hideConnectionError() {
-    connectionErrorView.setVisibility(INVISIBLE);
+    connectionErrorView.setVisibility(GONE);
+  }
+
+  @Override public void showRecExhausted() {
+    adapter.updateList(null);
+    fab.setRefreshState();
+    recExhaustedErrorView.setVisibility(VISIBLE);
+    hideList();
+  }
+
+  @Override public void hideRecExhausted() {
+    recExhaustedErrorView.setVisibility(GONE);
   }
 
   private void showList() {
@@ -177,5 +204,6 @@ public class MainActivity extends BaseActivity implements MainView {
     hideAuthError();
     hideLimitReached();
     hideConnectionError();
+    hideRecExhausted();
   }
 }

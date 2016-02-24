@@ -54,6 +54,14 @@ public interface MainView extends BaseView {
     @Override public void hideConnectionError() {
 
     }
+
+    @Override public void showRecExhausted() {
+
+    }
+
+    @Override public void hideRecExhausted() {
+
+    }
   };
 
   void loadRecommendations(List<Recommendation> results);
@@ -79,4 +87,8 @@ public interface MainView extends BaseView {
   void showConnectionError();
 
   void hideConnectionError();
+
+  void showRecExhausted();
+
+  void hideRecExhausted();
 }

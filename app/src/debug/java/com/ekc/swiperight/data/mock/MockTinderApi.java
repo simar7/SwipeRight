@@ -45,7 +45,9 @@ public class MockTinderApi implements TinderApi {
   }
 
   @Override public Observable<RecommendationResponse> recs(@Header("X-Auth-Token") String token) {
-    final Reader jsonFromFile = getJsonFromFile("recs.json");
+    final Reader jsonFromFile = random.nextBoolean()
+                                ? getJsonFromFile("recs.json")
+                                : getJsonFromFile("recs_exhausted.json");
     if (jsonFromFile != null) {
       RecommendationResponse response = gson.fromJson(jsonFromFile, RecommendationResponse.class);
       return Observable.just(response);

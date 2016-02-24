@@ -28,7 +28,7 @@
   <include layout="@layout/content_main"/>
   <include layout="@layout/error_states"/>
 
-  <android.support.design.widget.FloatingActionButton
+  <com.ekc.swiperight.ui.widget.MainFloatingActionButton
       android:id="@+id/fab"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
