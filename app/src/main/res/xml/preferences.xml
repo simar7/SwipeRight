@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-  <PreferenceCategory android:title="@string/category_api_token">
-    <EditTextPreference
-        android:key="@string/key_tinder_api"
-        android:title="@string/title_api_token"
-        android:defaultValue="@string/default_token"
-        android:summary="@string/summary_token_not_found"
-        />
-      </PreferenceCategory>
+    <PreferenceCategory android:title="@string/category_api_token">
+        <EditTextPreference
+            android:defaultValue="@string/default_token"
+            android:key="@string/key_tinder_api"
+            android:summary="@string/summary_token_not_found"
+            android:title="@string/title_api_token" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/category_theme_settings">
+        <EditTextPreference
+            android:defaultValue="@string/default_theme_choice"
+            android:key="@string/key_theme_choice"
+            android:title="@string/title_theme_setting" />
+    </PreferenceCategory>
 </PreferenceScreen>

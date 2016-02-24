@@ -7,8 +7,7 @@
     <item name="colorAccent">@color/colorAccent</item>
 
     <item name="colorButtonNormal">@color/tinderBlue</item>
-    <item name="android:colorBackground">@color/background_material_dark</item>
-    <item name="android:textColorPrimary">@android:color/background_light</item>
+
   </style>
 
   <style name="AppTheme.NoActionBar">
@@ -16,10 +15,29 @@
     <item name="windowNoTitle">true</item>
   </style>
 
-  <style name="AppTheme.AppBarOverlay"
+  <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+  <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+  <style name="AppThemeDark" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorPrimary">@color/colorPrimary</item>
+    <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    <item name="colorAccent">@color/colorAccent</item>
+
+    <item name="colorButtonNormal">@color/tinderBlue</item>
+    <item name="android:colorBackground">@color/background_material_dark</item>
+    <item name="android:textColorPrimary">@android:color/background_light</item>
+  </style>
+
+  <style name="AppThemeDark.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+  </style>
+
+  <style name="AppThemeDark.AppBarOverlay"
       parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
-  <style name="AppTheme.PopupOverlay"
+  <style name="AppThemeDark.PopupOverlay"
       parent="ThemeOverlay.AppCompat.Light"/>
 
   <style name="FacebookButton" parent="com_facebook_button">
@@ -29,4 +47,6 @@
     <item name="android:layout_marginTop">@dimen/fb_button_margin</item>
     <item name="android:layout_marginBottom">@dimen/fb_button_margin</item>
   </style>
+
+
 </resources>
